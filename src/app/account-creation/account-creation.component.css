@@ -1,0 +1,219 @@
+
+
+.main-container {
+	font-family: var(--ck-content-font-family);
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.editor-container_classic-editor .editor-container__editor {
+	min-width: 795px;
+	max-width: 795px;
+}
+
+.account-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.account-form h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid #ced4da;
+  border-radius: 6px;
+  font-size: 1.05rem;
+  background: #f8f9fa;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 2px;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #007bff;
+  background: #fff;
+  outline: none;
+  box-shadow: 0 0 0 2px #cce5ff;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.97em;
+  margin-top: 2px;
+}
+
+/* CKEditor Styles */
+.ckeditor-container {
+  width: 100%;
+}
+
+.ckeditor-container .ck-editor__editable {
+  min-height: 150px;
+  max-height: 300px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.ckeditor-container.is-invalid .ck-editor__editable {
+  border-color: #dc3545;
+}
+
+.ckeditor-container .ck-toolbar {
+  border: 1px solid #ddd;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+}
+
+.ckeditor-container .ck-editor__editable {
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+}
+
+/* Hide CKEditor branding and watermark */
+.ckeditor-container .ck-editor__main .ck-editor__editable::after {
+  display: none !important;
+}
+
+.ckeditor-container .ck-editor__main .ck-editor__editable .ck-editor__editable__powered-by {
+  display: none !important;
+}
+
+.ckeditor-container .ck-editor__main .ck-editor__editable[data-ckeditor-version]::after {
+  content: none !important;
+}
+
+/* Additional rules to hide watermark */
+.ckeditor-container .ck-editor__main .ck-editor__editable .ck-powered-by {
+  display: none !important;
+}
+
+.ckeditor-container .ck-editor__main .ck-editor__editable .ck-powered-by-balloon {
+  display: none !important;
+}
+
+.ckeditor-container .ck-editor__main .ck-editor__editable .ck-powered-by-balloon__label {
+  display: none !important;
+}
+
+.ckeditor-container .ck-editor__main .ck-editor__editable .ck-powered-by-balloon__link {
+  display: none !important;
+}
+
+/* Hide any element with "powered" in class name */
+.ckeditor-container [class*="powered"] {
+  display: none !important;
+}
+
+/* Hide watermark text */
+.ckeditor-container .ck-editor__main .ck-editor__editable:contains("Powered by CKEditor") {
+  display: none !important;
+}
+
+/* Global CKEditor watermark hiding */
+.ck-powered-by,
+.ck-powered-by-balloon,
+.ck-powered-by-balloon__label,
+.ck-powered-by-balloon__link,
+[class*="powered"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 0 2px 12px 0;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.btn-primary:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #545b62;
+}
+
+.btn:active { opacity: 0.85; }
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .account-form {
+    margin: 10px;
+    padding: 15px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+} 
+
+@media (max-width: 600px) {
+  input, select, textarea {
+    font-size: 1rem;
+    padding: 8px 10px;
+  }
+  label {
+    font-size: 1rem;
+  }
+} 

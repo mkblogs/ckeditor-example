@@ -1,0 +1,29 @@
+<div class="header-row">
+  <h2>Account List</h2>
+  <button class="btn btn-primary" [routerLink]="['/create-account']">+ Create Account</button>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Address</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let account of accounts">
+      <td data-label="Name">{{ account.name }}</td>
+      <td data-label="Type">{{ account.type }}</td>
+      <td data-label="Address">{{ account.address }}</td>
+      <td data-label="Actions">
+        <button class="icon-btn" [routerLink]="['/edit-account', account.id]" title="Edit">
+          <span class="material-icons">edit</span>
+        </button>
+        <button class="icon-btn delete" (click)="deleteAccount(account.id)" title="Delete">
+          <span class="material-icons">delete</span>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table> 

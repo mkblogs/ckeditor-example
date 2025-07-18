@@ -1,0 +1,33 @@
+<div class="account-form">
+  <button class="btn btn-secondary" [routerLink]="['/']">&larr; Back to List</button>
+  <h2>{{ isEditMode ? 'Update Account' : 'Create New Account' }}</h2>
+  <form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" formControlName="name" type="text" />
+      <div class="error-message" *ngIf="getErrorMessage('name')">{{ getErrorMessage('name') }}</div>
+    </div>
+    <div class="form-group">
+      <label for="type">Type</label>
+      <select id="type" formControlName="type">
+        <option value="">Select type</option>
+        <option *ngFor="let t of accountTypes" [value]="t.value">{{ t.label }}</option>
+      </select>
+      <div class="error-message" *ngIf="getErrorMessage('type')">{{ getErrorMessage('type') }}</div>
+    </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input id="address" formControlName="address" type="text" />
+      <div class="error-message" *ngIf="getErrorMessage('address')">{{ getErrorMessage('address') }}</div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>       
+      <app-ckeditor [fieldname]="fieldname" [selectedObject]="accountOriginal"></app-ckeditor>
+      <div class="error-message" *ngIf="getErrorMessage('description')">{{ getErrorMessage('description') }}</div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-primary" type="submit">{{ isEditMode ? 'Update Account' : 'Create Account' }}</button>
+      <button class="btn btn-secondary" type="button" (click)="resetForm()">Reset</button>
+    </div>
+  </form>
+</div>
